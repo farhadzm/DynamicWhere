@@ -23,11 +23,11 @@ namespace DynamicQuery.Expressions
                 MemberExpression memberExpression = Expression.Property(parameterExpression, item.Name);
                 ConstantExpression constantExpression = Expression.Constant(item.Data);
                 BinaryExpression comparison = GetBinaryExpression(item.Comparison, memberExpression, constantExpression);
-                var expression1 = Expression.Lambda<Func<TModel, bool>>(comparison, parameterExpression);
+                var expression = Expression.Lambda<Func<TModel, bool>>(comparison, parameterExpression);
                 var param = Expression.Parameter(typeof(TModel), "x");
                 var body = Expression.AndAlso(
                             Expression.Invoke(result, param),
-                            Expression.Invoke(expression1, param)
+                            Expression.Invoke(expression, param)
                         );
                 result = Expression.Lambda<Func<TModel, bool>>(body, param);
             }
