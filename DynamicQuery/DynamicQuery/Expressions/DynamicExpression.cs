@@ -10,7 +10,7 @@ namespace DynamicQuery.Expressions
 {
     public static class DynamicExpression<TModel>
     {
-        public static Expression<Func<TModel, bool>> GetExpression(IEnumerable<DynamicModel> dynamicModel)
+        public static Expression<Func<TModel, bool>> Filter(IEnumerable<DynamicModel> dynamicModel)
         {
             Expression<Func<TModel, bool>> result = a => true;
             foreach (var item in dynamicModel)
