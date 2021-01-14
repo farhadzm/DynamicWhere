@@ -8,9 +8,13 @@ using System.Text;
 
 namespace DynamicQuery.Expressions
 {
-    public static class DynamicExpression<TModel>
+    public static class DynamicExpression
     {
-        public static Expression<Func<TModel, bool>> Filter(IEnumerable<DynamicModel> dynamicModel)
+        public static IQueryable<TModel> DynamicFilter<TModel>(this IQueryable<TModel> iqueryable, IEnumerable<DynamicQuery.Model.DynamicModel> dynamicModel)
+        {
+            return iqueryable.Where(Filter<TModel>(dynamicModel));
+        }
+        public static Expression<Func<TModel, bool>> Filter<TModel>(IEnumerable<DynamicQuery.Model.DynamicModel> dynamicModel)
         {
             Expression<Func<TModel, bool>> result = a => true;
             foreach (var item in dynamicModel)
