@@ -26,3 +26,4 @@ dyn.Add(new DynamicModel()
 
 var people = _dbContext.Users.DynamicWhere(dyn).ToList();
 ```
+ People variable is equal to all records that `Name` property contain `a` and `Family Name` property does not contain `s`.
