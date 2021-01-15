@@ -1,4 +1,12 @@
 # DynamicWhere
+```cs
+public class User
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string FamilyName { get; set; }
+}
+```
 
 ```cs
 var dyn = new List<DynamicModel>();
@@ -16,5 +24,5 @@ dyn.Add(new DynamicModel()
     PropertyName = "Name"
 });
 
-var people = PeopleDataGenerator.GetPeople().DynamicWhere(dyn).ToList();
+var people = _dbContext.Users.DynamicWhere(dyn).ToList();
 ```
