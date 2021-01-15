@@ -98,9 +98,9 @@ namespace DynamicQuery
                 return source.ToString().Contains(value.ToString());
             }
 
-            if (source is Array)
+            if (source is Array array)
             {
-                return Array.IndexOf((Array)source, value) >= 0;
+                return Array.IndexOf(array, value) >= 0;
             }
 
             if (source is IEnumerable)
@@ -116,9 +116,9 @@ namespace DynamicQuery
                 return !source.ToString().Contains(value.ToString());
             }
 
-            if (source is Array)
+            if (source is Array array)
             {
-                return !(Array.IndexOf((Array)source, value) >= 0);
+                return !(Array.IndexOf(array, value) >= 0);
             }
 
             if (source is IEnumerable)
@@ -166,9 +166,9 @@ namespace DynamicQuery
                 return !string.IsNullOrEmpty(source.ToString());
             }
 
-            if (source is Array)
+            if (source is Array array)
             {
-                return source != null && ((Array)source).Length > 0;
+                return source != null && array.Length > 0;
             }
 
             if (source is IEnumerable)
@@ -184,9 +184,9 @@ namespace DynamicQuery
                 return string.IsNullOrEmpty(source.ToString());
             }
 
-            if (source is Array)
+            if (source is Array array)
             {
-                return source == null || ((Array)source).Length == 0;
+                return source == null || array.Length == 0;
             }
 
             if (source is IEnumerable)
