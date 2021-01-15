@@ -1,4 +1,4 @@
-# DynamicQuery
+# DynamicWhere
 
 ```cs
 var dyn = new List<DynamicModel>();
