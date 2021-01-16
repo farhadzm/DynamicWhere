@@ -163,12 +163,12 @@ namespace DynamicQuery
         {
             if (source is string)
             {
-                return !string.IsNullOrEmpty(source.ToString());
+                return !string.IsNullOrEmpty(source?.ToString());
             }
 
-            if (source is Array array)
+            if (source is Array)
             {
-                return source != null && array.Length > 0;
+                return source != null && ((Array)source).Length > 0;
             }
 
             if (source is IEnumerable)
@@ -181,12 +181,12 @@ namespace DynamicQuery
         {
             if (source is string)
             {
-                return string.IsNullOrEmpty(source.ToString());
+                return string.IsNullOrEmpty(source?.ToString());
             }
 
-            if (source is Array array)
+            if (source is Array)
             {
-                return source == null || array.Length == 0;
+                return source == null || ((Array)source).Length == 0;
             }
 
             if (source is IEnumerable)
